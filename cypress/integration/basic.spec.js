@@ -7,13 +7,22 @@ describe('Cypress Basic', () => {
         //const title = cy.title()
         //console.log(title)
 
-        cy.pause() // Pausa o processo de teste
+        //cy.pause() // Pausa o processo de teste
 
         cy.title().should('be.eq', 'Campo de Treinamento') // Verifica o Titulo da pagina
-        cy.title().should('contain', 'Campo').debug() // Verifica o Titulo da pagina
+        cy.title().should('contain', 'Campo')//.debug() // Verifica o Titulo da pagina
         // o DEBUG é para pegar mais informações
-        
-        cy.title().should('be.eq', 'Campo de Treinamento').should('contain', 'Campo') // Verifica o Titulo da pagina
+
+        //cy.title().should('be.eq', 'Campo de Treinamento').should('contain', 'Campo') // Verifica o Titulo da pagina
+//----------------------------------------------------------------------------------------------------------------------------------------
+        // cy.title().then(title => { // Verifica o titulo da pagina pelo console
+        //     console.log(title)
+        // })
+        // OU
+        cy.title().should(title => {
+            console.log(title)
+        })
+
     })
     it('Acertivas do Botão', () => {
         cy.visit('https://wcaquino.me/cypress/componentes.html')
@@ -23,5 +32,5 @@ describe('Cypress Basic', () => {
         // Fazendo Acertiva
         cy.get('#buttonSimple').click().should('have.value', 'Obrigado!') // Acertiva é oque garente que aquela ação ocorreu conforme o esperado
 
-    })
+    })  
 })
