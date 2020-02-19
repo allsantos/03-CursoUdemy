@@ -1,7 +1,7 @@
 /// <reference types='cypress' />
 
 describe('Cypress Basic', () => {
-    it.only('Should visit a page and title', () => {
+    it('Should visit a page and title', () => {
         cy.visit('https://wcaquino.me/cypress/componentes.html')
 
         //const title = cy.title()
@@ -32,5 +32,27 @@ describe('Cypress Basic', () => {
         // Fazendo Acertiva
         cy.get('#buttonSimple').click().should('have.value', 'Obrigado!') // Acertiva é oque garente que aquela ação ocorreu conforme o esperado
 
-    })  
+    })
+    it.only('Reutilizando o Titulo', () => {
+        cy.visit('https://wcaquino.me/cypress/componentes.html')
+
+        // Escrever o titulo em outro bloco
+        let syncTitle
+
+        cy.title().then(title => { 
+            console.log(title)
+
+            cy.get('#formNome').type(title)
+
+            syncTitle = title
+        })
+
+        cy.get('[data-cy=dataSobrenome]').then($el => {
+            $el.val(syncTitle)
+        })
+        // Quando tem 2 pontos "\:" temos que colocar duas BARRAS antes dos 2 pontos "\\:"
+        cy.get('#elementosForm\\:sugestoes').then($el => {
+            cy.wrap($el).type(syncTitle)
+        })
+    })
 })
