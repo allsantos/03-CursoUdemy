@@ -70,7 +70,7 @@ describe('Esperas...', () => {
     
     it.only('Diferença Should ou Then parte 02', () => {
         cy.get('#buttonListDOM').then($el => { // Só quem considera o RETURN é o THEN
-        // cy.get('#buttonListDOM').should($el => {  // Se eu colocar o SHOULD ele entra em um loop, PQ usei "($el =>" e "cy.get('#buttonList')"
+        // cy.get('#buttonListDOM').should($el => { // Se eu colocar o SHOULD ele entra em um loop, PQ usei "($el =>" e "cy.get('#buttonList')"
             expect($el).to.have.length(1)
             cy.get('#buttonList')
         })

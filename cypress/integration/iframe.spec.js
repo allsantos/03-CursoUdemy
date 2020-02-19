@@ -8,7 +8,7 @@ describe('Trabalhando com Iframes', () => {
     it('Deve preencher campo de texto', () => {
         cy.visit('https://wcaquino.me/cypress/componentes.html')
         cy.get('iframe').then(iframe => {
-            const body = iframe.contents().find('body')
+            const body = iframe.contents().find('body') // O "Contents" ele traz os filhos dos ELEMENTOS
             cy.wrap(body).find('#tfield').type('Funciona?').should('have.value', 'Funciona?')
 
             cy.on('window:alert', msg => {

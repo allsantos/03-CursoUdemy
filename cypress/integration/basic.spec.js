@@ -10,7 +10,7 @@ describe('Cypress Basic', () => {
         //cy.pause() // Pausa o processo de teste
 
         cy.title().should('be.eq', 'Campo de Treinamento') // Verifica o Titulo da pagina
-        cy.title().should('contain', 'Campo')//.debug() // Verifica o Titulo da pagina
+        cy.title().should('contain', 'Campo') //.debug() // Verifica o Titulo da pagina
         // o DEBUG é para pegar mais informações
 
         //cy.title().should('be.eq', 'Campo de Treinamento').should('contain', 'Campo') // Verifica o Titulo da pagina
