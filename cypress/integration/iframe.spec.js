@@ -13,8 +13,8 @@ describe('Trabalhando com Iframes', () => {
 
             cy.on('window:alert', msg => {
                 expect(msg).to.be.eq('Alert Simples')
+                //cy.wrap(body).find('otherButton').click()
             })
-            //cy.wrap(body).find('otherButton').click()
         })
     })
     it('Trabalhando com Iframe', () => {
