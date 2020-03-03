@@ -11,7 +11,7 @@ describe('Trabalhando com PopUps', () => {
             expect(msg).to.be.eq('Click OK!')
         })
     })
-    it('Deve preencher campo de texto', () => {
+    it('Deve verificar se o popup foi enviado', () => {
         cy.visit('https://wcaquino.me/cypress/componentes.html')
         cy.window().then(win => {
             cy.stub(win, 'open').as('winOpen')
@@ -33,6 +33,10 @@ describe('Trabalhando com PopUps', () => {
             cy.visit(href)
             cy.get('#tfield').type('Funciona?')
             })
+        })
+        it.only("Forçar um link para abrir na mesma pagina", () => {
+            cy.contains('Popup2').invoke('removeAttr', 'target').click()
+            cy.get('#tfield').type('funciona')
         })
     })
 })
