@@ -4,7 +4,7 @@ describe('Trabalhando com PopUps', () => {
     beforeEach(() => {
         cy.reload()
     })
-    it('Deve testar PopUp diretamento', () => {
+    it.only('Deve testar PopUp diretamento', () => {
         cy.visit('https://wcaquino.me/cypress/frame.html')
         cy.get('#otherButton').click()
         cy.on('window:alert', msg => {
@@ -19,7 +19,7 @@ describe('Trabalhando com PopUps', () => {
         cy.get('#buttonPopUp').click()
         cy.get('@winOpen').should('be.called')
     })
-    describe.only('PopUp com Links', () => {
+    describe('PopUp com Links', () => {
             beforeEach(() => {
                 cy.visit('https://wcaquino.me/cypress/componentes.html')
             })
@@ -34,7 +34,7 @@ describe('Trabalhando com PopUps', () => {
             cy.get('#tfield').type('Funciona?')
             })
         })
-        it.only("Forçar um link para abrir na mesma pagina", () => {
+    it("Forçar um link para abrir na mesma pagina", () => {
             cy.contains('Popup2').invoke('removeAttr', 'target').click()
             cy.get('#tfield').type('funciona')
         })

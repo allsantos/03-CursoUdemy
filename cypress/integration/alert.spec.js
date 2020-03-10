@@ -18,7 +18,7 @@ describe('Trabalhando com Alerts', () => {
         cy.on('window:alert', stub)
         cy.get('#alert').click().then(()=> {
             expect(stub.getCall(0)).to.be.calledWith('Alert Simples')
-            // Estou chamando o STUB com a CHAMADA "GETCALL" que o STUB está fazendo.
+            // Estou chamando o STUB com a CHAMADA "GETCALL" que o STUB está fazendo.        cy.get('.MuiPaper-root')
         })
     })
 
