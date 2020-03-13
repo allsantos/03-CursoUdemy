@@ -20,14 +20,5 @@ import './commands'
 // require('./commands')
 
 Cypress.SelectorPlayground.defaults({
-    selectorPriority: ['data-wc','id', 'class', 'attributes', 'data-cy', 'data-test', 'data-testid','tag','nth-child']
-  })
-
-
-  
-
-
-
-
-
-
+  selectorPriority: ['data-wc','id', 'class', 'attributes', 'data-cy', 'data-test', 'data-testid','tag','nth-child']
+})
